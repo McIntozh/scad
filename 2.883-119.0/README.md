@@ -9,4 +9,4 @@ SCAD-file features boolean variables for:
 
 STL files are available on thinhiverse: https://www.thingiverse.com/thing:5720994
 
-License: Attribution 4.0 International (CC BY 4.0)
+License: [Attribution 4.0 International (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/)
