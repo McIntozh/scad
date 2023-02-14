@@ -8,3 +8,5 @@ SCAD-file features boolean variables for:
 - printing very detailed holes or just long small gaps
 
 STL files are available on thinhiverse: https://www.thingiverse.com/thing:5720994
+
+License: Attribution 4.0 International (CC BY 4.0)
