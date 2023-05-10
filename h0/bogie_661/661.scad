@@ -1,7 +1,7 @@
 /*
 Bogie of the german type Minden Siegen 661 / 664 made for H0 (1:87) scale.
 
-License: [Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/)
+License: [Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 */
 
 $fn = 64/2;

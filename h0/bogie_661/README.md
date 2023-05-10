@@ -12,4 +12,4 @@ The wheels in the parent folder are fitting this bogie.
 
 Thanks go to http://www.drehgestelle.de/2/ms_z.html for drawings and photos of this bogie type.
 
-License: [Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/)
+License: [Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
