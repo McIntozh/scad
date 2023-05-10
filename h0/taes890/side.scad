@@ -1,7 +1,7 @@
 /*
 WIP of a wagon of the german type taems890 in H0 scale (1:87).
 
-License: [Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)](https://creativecommons.org/licenses/by-nc/4.0/)
+License: [Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 */
 side();
 //scale(1/87)side();
