@@ -16,10 +16,10 @@ if($prepareForPrint){
 }
 
 module wheelsForPrint(){
-    translate([9,0,0])
+    /*translate([9,0,0])
         wheel();
     translate([-9,0,0])
-        wheel();
+        wheel();*/
     translate([0,0,1.9/2])
         axis();
 }

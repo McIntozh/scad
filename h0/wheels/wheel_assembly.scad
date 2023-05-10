@@ -2,6 +2,7 @@
 Assembly helper for th H0 wheelset.
 Glue the wheels to the axis, than insert into this helper to ensure everything keeps straight while drying
 
+License: Attribution 4.0 International (CC BY 4.0) 
 */
 
 $axisDistance=14.05;// should be adjusted if you changed the axis distance in the wheels file
