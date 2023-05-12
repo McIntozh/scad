@@ -7,11 +7,11 @@ For commercial use please contact the author
 */
 
 /* [Global] */
-//Miniature scale, ("32 mm scale" would be 1/57.2, so enter 57.2 here), see https://en.wikipedia.org/wiki/Miniature_model_(gaming) for more examples
-scale_factor=57.2; //[30:200]
-
 
 /* [Topper] */
+//Miniature scale, ("32 mm scale" would be 1/57.2, so enter 57.2 here), see https://en.wikipedia.org/wiki/Miniature_model_(gaming) for more examples. Recommended minimum is 30.
+scale_factor=57.2;
+
 //Diameter of the top surface
 base_top_diameter=23; //[13:50]
 
