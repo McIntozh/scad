@@ -8,11 +8,12 @@ For commercial use please contact the author
 
 /* [Global] */
 //Miniature scale, ("32 mm scale" would be 1/57.2, so enter 57.2 here), see https://en.wikipedia.org/wiki/Miniature_model_(gaming) for more examples
-scale_factor=57.2;
+scale_factor=57.2; //[30:200]
+
 
 /* [Topper] */
 //Diameter of the top surface
-base_top_diameter=23; //[23:50]
+base_top_diameter=23; //[13:50]
 
 //Pattern to be applied to the surface
 pattern="shifted"; //[none, straigt, shifted, elbow, windmill, bone]
@@ -22,7 +23,7 @@ pattern="shifted"; //[none, straigt, shifted, elbow, windmill, bone]
 base_type="none"; //[none, flat, with_hole]
 
 //Bottom diameter of the base (usually ~2mm larger than the top)
-base_bottom_diameter=25; //[25:52]
+base_bottom_diameter=25; //[15:52]
 
 
 /* [Hidden] */
@@ -31,32 +32,33 @@ stone_size=[200,100,60];
 bone_stone_size=[200,165,60];
 scale=1/scale_factor;
 
+modifier=1 / 23*base_top_diameter / 57.2*scale_factor;
 
 translate([0,0,1])
 intersection(){
 cylinder(h=4,d=base_top_diameter,center=true);
 scale(scale)
 difference(){
-    cube([2000/23*base_top_diameter,2000/23*base_top_diameter,60],center=true);
+    cube([2000*modifier,2000*modifier,60],center=true);
     
     if(pattern=="bone")
-        pattern_bone(13/23*base_top_diameter,19/23*base_top_diameter);
+        pattern_bone(13*modifier,19*modifier);
     
     if(pattern=="windmill")
-        pattern_windmil(8/23*base_top_diameter,9/23*base_top_diameter);
+        pattern_windmil(8*modifier,9*modifier);
     
     if(pattern=="elbow")
-        pattern_elbow(20/23*base_top_diameter,20/23*base_top_diameter);   
+        pattern_elbow(20*modifier,20*modifier);   
        
     if(pattern=="shifted")
-        pattern_shifted(10/23*base_top_diameter,13/23*base_top_diameter);
+        pattern_shifted(10*modifier,13*modifier);
     if(pattern=="straigt")
-        pattern_straight(10/23*base_top_diameter,13/23*base_top_diameter);
+        pattern_straight(10*modifier,13*modifier);
 }
 }
 
 if( base_type=="flat" ){
-    cylinder(h=3,d1=base_bottom_diameter,d2=base_top_diameter,center=true);
+    cylinder(h=3-.5,d1=base_bottom_diameter,d2=base_top_diameter,center=true);
 }
 if(base_type=="with_hole" ){
     difference(){
