@@ -7,4 +7,4 @@ Example toppers and bases in "32 mm scale" which is 1/57.2 can be found on my th
 
 ## License
 Licensed under [Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/).
-If you planning a commercial use, please contact the author.
+If you are planning a commercial use, please contact the author.
