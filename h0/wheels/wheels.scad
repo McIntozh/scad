@@ -7,6 +7,7 @@ License: Attribution 4.0 International (CC BY 4.0)
 
 $prepareForPrint=true; //lays the parts down on the printbed
 $axisDistance=14.05; // distance between the wheels / axis length
+$wheelRadiusOuter=7; // maxiumum radius of the wheel
 $fn= $preview?64:128;
 
 if($prepareForPrint){
@@ -16,10 +17,10 @@ if($prepareForPrint){
 }
 
 module wheelsForPrint(){
-    /*translate([9,0,0])
+    translate([9+($wheelRadiusOuter*2-12),0,0])
         wheel();
-    translate([-9,0,0])
-        wheel();*/
+    translate([-9-($wheelRadiusOuter*2-12),0,0])
+        wheel();
     translate([0,0,1.9/2])
         axis();
 }
@@ -60,16 +61,16 @@ module wheel(){
     
     color("blue")
     difference(){
-    cylinder(h = 3, r=5.505, center = false);
+    cylinder(h = 3, r=5.505/7*$wheelRadiusOuter, center = false);
     translate([0,0,.54])color("lime")cylinder(h = 0.708, r1=7,r2=5.5, center = false);
-    cylinder(h = 3.2, r=5.2, center = false);
+    cylinder(h = 3.2, r=5.2/7*$wheelRadiusOuter, center = false);
     translate([0,0,.54])color("lime")cylinder(h = 0.708, r1=7,r2=5.5, center = false);
     }
     
-    color("green")cylinder(h = 0.54, r=7, center = false);
+    color("green")cylinder(h = 0.54, r=$wheelRadiusOuter, center = false);
     
     color("pink")translate([0,0,-0.255]){
-    scale(0.5) //0.385
+    scale([0.5/7*$wheelRadiusOuter,0.5/7*$wheelRadiusOuter,0.5]) //0.385
         import("H0_wheels_print_in_half_scale_ok___03.stl", convexity=100,center=true);
     }
 }
