@@ -5,6 +5,7 @@ Due to fine details, it may also look good if scaled up.
 License: [Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 */
 $fn=32;
+holeType="pyramid";//none|pyramid|m8
 
 difference(){
 union(){
@@ -141,12 +142,22 @@ for(j=[-1:2:1])for(i=[-1:2:1])
 translate([4.5*j,-10.4*sign(i),4])
 cube([3,.6,4],center=true);
 
-//infill hole
+//infill holes
+if(holeType=="pyramid"){
 translate([0,0,0])
 rotate([0,0,45])cylinder(r1=12,r2=2,h=16,center=true,$fn=4);
 translate([0,0,-10])
 cube([10,10,10],center=true);
+}
 
+if(holeType=="m8"){
+translate([0,0,-10.1])
+//difference(){
+cylinder(h=8,d=15.2,center=false,$fn=6);
+//cylinder(h=17,d=6,center=true);
+//}
+
+}
 
 }
 
