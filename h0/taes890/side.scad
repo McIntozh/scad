@@ -230,7 +230,7 @@ cube([120,13000+2,100],center=true);
 module bottom_stripe(){
 color("red")
 translate([70,0,-224])
-cube([50,13000+4,50],center=true);
+cube([50,13000+4+86,50],center=true);
 
 }
 
