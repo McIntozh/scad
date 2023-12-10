@@ -5,26 +5,18 @@ License: [Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.
 */
 use <floor.scad>
 use <side.scad>
+use <front_back.scad>
+use <roof.scad>
 use <buffer.scad>
+
+$fn=32;
+
+
 scale(1/87){
 
-//roof radius test
-translate([0,0,-310])
-difference(){
-translate([0,0,1500])
-rotate([90,0,0])
-cylinder(r=2000,h=13500,center=true,$fn=32);
-translate([0,0,500]){
-cube([4000,13501,4000],center=true);
-translate([2500,0,2200])
-cube([2000,13501,1000],center=true);
-translate([-2500,0,2200])
-cube([2000,13501,1000],center=true);
-translate([0,0,2000])
-cube([4000,13251,500],center=true);
-}
-}
-// /roof radius test
+
+roof();
+
 
 floor();
 buffers();
@@ -32,6 +24,13 @@ for(i=[-1:2:1])
 translate([2650/2*i,0,100])
 rotate([0,0,(i>0?0:180)])
 side();
+
+translate([0,13000/2,2300/2+100])
+mirror([0,1,0])
+front();
+
+translate([0,-13000/2+15,2300/2+100])
+back();
 
 
 for(i=[-1,1,1])
