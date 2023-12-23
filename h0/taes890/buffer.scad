@@ -1,14 +1,20 @@
+/*
+WIP of a wagon of the german type taems890 in H0 scale (1:87).
+
+License: [Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+*/
+
 rotate([-90,0,0])
 buffer();
 
 module buffer_holes(){
 for(j=[0:1])mirror([0,j,0])for(i=[-1:2:1])
 translate([1750/2*-i,(13000/2+200),-30])
-scale([1.01,1,1.01])buffer_hole();
+scale([1.1,1,1.1])buffer_hole();
 }
 
 module buffer_hole(){
-color("lightblue")translate([0,-249,0]) cube([100,100,100],center=true);
+color("lightblue")translate([0,-249-50,0]) cube([100,200,100],center=true);
 }
 module buffers(){
 for(j=[0:1])mirror([0,j,0])for(i=[-1:2:1]){

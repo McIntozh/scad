@@ -1,14 +1,27 @@
+/*
+WIP of a wagon of the german type taems890 in H0 scale (1:87).
+
+License: [Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+*/
+
 translate([-1500,0,0])
 front();
  
- translate([1500,0,0])
- back();
+translate([1500,0,0])
+back();
  
  
  module front(){
- cube([2750,120,2300],center=true);
+ difference(){
+    cube([2750,120,2300],center=true);
+    translate([1350,60,0])
+    cube([60,100,2400],center=true);
+    translate([-1350,60,0])
+    cube([60,100,2400],center=true);
+ }
  front_back_bars();
  front_back_roof_pin();
+ front_back_roof_snap();
  front_back_5degree_bars();
  spring_mechanism();
  
@@ -20,9 +33,16 @@ wheel_handle();
 }
  
  module back(){
- cube([2750,120,2300],center=true);
+ difference(){
+    cube([2750,120,2300],center=true);
+    translate([1350,60,0])
+    cube([60,100,2400],center=true);
+    translate([-1350,60,0])
+    cube([60,100,2400],center=true);
+ }
  front_back_bars();
  front_back_roof_pin();
+ front_back_roof_snap();
  front_back_5degree_bars();
  spring_mechanism();
  
@@ -39,6 +59,13 @@ wheel_handle();
 translate([0,-112,-60])
 rotate([90,0,0])
 cylinder(r=100,h=225,center=true,$fn=32);
+ }
+ 
+ module front_back_roof_snap(){
+ color("lightgreen")
+translate([0,-112,450])
+rotate([90,0,0])
+cylinder(r=40,h=200,center=true,$fn=32);
  }
  
  module front_back_bars(){
@@ -178,36 +205,39 @@ cylinder(r=100,h=225,center=true,$fn=32);
  }
  
 module small_handle(){
+r=20;
 translate([-800, -63, -50])
+scale([1,2.5,1])
 color("snow")rotate([0,90,-90]){
     translate([-100, -240, 0])
-        rotate([90, 0, 90]) cylinder(r=10, h=100);
+        rotate([90, 0, 90]) cylinder(r=r, h=100);
     rotate_extrude(angle=90, convexity=10)
-       translate([40, 0]) circle(10);
+       translate([40, 0]) circle(r);
     translate([40, 0, 0])
-        rotate([90, 0, 0]) cylinder(r=10, h=200);
+        rotate([90, 0, 0]) cylinder(r=r, h=200);
     translate([0,-200,0])
         rotate_extrude(angle=-90, convexity=10)
-        translate([40, 0]) circle(10);
+        translate([40, 0]) circle(r);
     translate([-100, 40, 0])
-        rotate([90, 0, 90]) cylinder(r=10, h=100);
+        rotate([90, 0, 90]) cylinder(r=r, h=100);
  }
 }
 
 module large_handle(){
-translate([-1300, -63-70, 50])
+r=20;
+translate([-1300, -63-70+50, 50])
 color("snow")rotate([90,0,-90]){
     translate([-100, -240-800, 0])
-        rotate([90, 0, 90]) cylinder(r=10, h=100);
+        rotate([90, 0, 90]) cylinder(r=r, h=100);
     rotate_extrude(angle=90, convexity=10)
-       translate([40, 0]) circle(10);
+       translate([40, 0]) circle(r);
     translate([40, 0, 0])
-        rotate([90, 0, 0]) cylinder(r=10, h=1000);
+        rotate([90, 0, 0]) cylinder(r=r, h=1000);
     translate([0,-1000,0])
         rotate_extrude(angle=-90, convexity=10)
-        translate([40, 0]) circle(10);
+        translate([40, 0]) circle(r);
     translate([-100, 40, 0])
-        rotate([90, 0, 90]) cylinder(r=10, h=100);
+        rotate([90, 0, 90]) cylinder(r=r, h=100);
  }
 }
 

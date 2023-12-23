@@ -3,6 +3,7 @@ WIP of a wagon of the german type taems890 in H0 scale (1:87).
 
 License: [Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 */
+
 side();
 //scale(1/87)side();
 module side(){
@@ -17,7 +18,7 @@ difference(){
     }
     */
     }
-    side_2_fron_and_back_part_connector();
+    side_2_front_and_back_part_connector();
 }
 vertical_stipes();
 top_stripe();//TODO eigentlich top roof part
@@ -81,18 +82,19 @@ for(i=[-1:2:1])
 }
 
 module door_handle(){
+r=15;
 color("snow")rotate([90,0,-90]){
     translate([-100, -240, 0])
-        rotate([90, 0, 90]) cylinder(r=10, h=100);
+        rotate([90, 0, 90]) cylinder(r=r, h=100);
     rotate_extrude(angle=90, convexity=10)
-       translate([40, 0]) circle(10);
+       translate([40, 0]) circle(r);
     translate([40, 0, 0])
-        rotate([90, 0, 0]) cylinder(r=10, h=200);
+        rotate([90, 0, 0]) cylinder(r=r, h=200);
     translate([0,-200,0])
         rotate_extrude(angle=-90, convexity=10)
-        translate([40, 0]) circle(10);
+        translate([40, 0]) circle(r);
     translate([-100, 40, 0])
-        rotate([90, 0, 90]) cylinder(r=10, h=100);
+        rotate([90, 0, 90]) cylinder(r=r, h=100);
  }
 }
 
@@ -254,9 +256,9 @@ translate([0,0,-160])cube([30,30,30],center=true);
 
 module anchors(){
 for(i=[-1:2:1])
-translate([40,6050*sign(i),0]){
+translate([40-20,6050*sign(i),0]){
 anchor();
-color("black")translate([-150,0,0])scale([2,1,1])
+color("black")translate([-150-125,0,0])scale([3,1,1])
 anchorhook();
 }
 
@@ -333,16 +335,20 @@ cylinder(r=35,h=10,center=true);
 }
 
 module pipe_box_pipe(){
+    r=17;
     translate([40,0,75])
-    cylinder(r=13,h=150,center=true);
+    cylinder(r=r,h=150,center=true);
 
     rotate([0,90,90])
     rotate_extrude(angle=-90, convexity=10)
-    translate([40, 0]) circle(13);
+    translate([40, 0]) circle(r);
 
     translate([-5,0,-40])
     rotate([0,90,0])
-    cylinder(r=13,h=15,center=true);
+    cylinder(r=r,h=15,center=true);
+    
+    translate([-5,0,-25])
+    cube([50,10,160]);
 }
 
 module little_knobby_thing_on_the_right(){
@@ -360,7 +366,7 @@ translate([-45,0,20])
 cube([45,12000,50],center=true);
 }
 
-module side_2_fron_and_back_part_connector(){
+module side_2_front_and_back_part_connector(){
 
 for(i=[-1:2:1]){
 translate([-45,6450*i,1220])
