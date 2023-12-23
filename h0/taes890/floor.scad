@@ -30,22 +30,36 @@ cube([2650-100,13000-100,55],center=true);
 }
 
 bogie_pins();
-ladders();
+side_ladders();
+back_ladders();
 levers_pipes_tanks();
-//TODO back ladders
 }
 
-module ladders(){
-ladder();
-translate([0,2000,0])mirror([1,0,0])ladder();
+module side_ladders(){
+side_ladder();
+translate([0,2000,0])mirror([1,0,0])side_ladder();
 }
 
-module ladder(){
+module side_ladder(){
 translate([1200,-1000,-225+10]){
     translate([0,-150,0])rotate([0,10,0])cube([100,150,350],center=true);
     translate([0,150,0])rotate([0,10,0])cube([100,150,350],center=true);
     translate([16,0,-166])
     cube([250,500,75],center=true);
+}
+}
+
+module back_ladders(){
+back_ladder();
+translate([100,0,0])mirror([1,0,0])back_ladder();
+}
+
+module back_ladder(){
+rotate([0,0,90])
+translate([-6400,1000,-225+10]){
+    translate([0,150,0])cube([100,150,350],center=true);
+    translate([-50,150,-166])
+    cube([200,200,75],center=true);
 }
 }
 
