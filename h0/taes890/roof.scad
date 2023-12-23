@@ -71,8 +71,10 @@ module roof_connector(){
       
       translate([0,(6688+12.5)*i,1500]){
       difference(){
-        translate([0,5*i,100+550])
-        cube([350,110,1500+1100],center=true);
+        s=(i==1)?0:400;
+        translate([0,5*i,100+550+(s/2)]){
+        cube([350,110,(1500+1100)-s],center=true);
+        }
       
         union(){
             translate([0,-20*i,0])
