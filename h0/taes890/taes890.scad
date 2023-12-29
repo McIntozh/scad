@@ -11,9 +11,10 @@ use <roof.scad>
 use <buffer.scad>
 
 $fn=32;
+$scale=1/87;
 
 
-scale(1/87){
+scale($scale){
 
 
 roof();

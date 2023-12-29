@@ -4,8 +4,16 @@ WIP of a wagon of the german type taems890 in H0 scale (1:87).
 License: [Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 */
 
+$scale=1/87;
+
+
+
 use <buffer.scad>
-floor();
+
+scale($scale)
+  floor();
+  
+  
 module floor(){
 
 difference(){

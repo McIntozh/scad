@@ -4,8 +4,10 @@ WIP of a wagon of the german type taems890 in H0 scale (1:87).
 License: [Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 */
 
-side();
-//scale(1/87)side();
+$scale=1/87;
+
+
+scale($scale)side();
 module side(){
 difference(){
     translate([0,0,1150]){
@@ -258,7 +260,7 @@ module anchors(){
 for(i=[-1:2:1])
 translate([40-20,6050*sign(i),0]){
 anchor();
-color("black")translate([-150-125,0,0])scale([3,1,1])
+color("black")translate([-150-120,0,0])scale([3,1,1])
 anchorhook();
 }
 
@@ -283,9 +285,9 @@ difference(){
     cube([30,120,230],center=true);
     hull()
     for(i=[-1:2:1])
-    translate([0,50*sign(i),-70])
+    translate([0,50*sign(i),-65])
     rotate([90,0,90])
-    cylinder(r=50,h=30,center=true);
+    cylinder(r=60,h=30,center=true);
     }
 
     for(i=[-1:2:1]){
@@ -293,7 +295,10 @@ difference(){
         rotate([90,0,90])
         cylinder(r=40,h=40,center=true);
         translate([0,67*sign(i),-0])rotate([25*-sign(i),0,0])cube([40,40,100],center=true);
+        translate([0,i*100,-30])
+        cube([40,50,60],center=true);
     }
+    
 }}
 }
 

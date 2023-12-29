@@ -4,8 +4,12 @@ WIP of a wagon of the german type taems890 in H0 scale (1:87).
 License: [Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0)](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 */
 
+$scale=1/87;
 split_roof_for_print=false;
 
+
+
+scale($scale)
 if(split_roof_for_print){
     
     difference(){
@@ -28,9 +32,6 @@ if(split_roof_for_print){
 
 
 module roof(){
-
-
-
 
 color("brown")
 translate([0,0,-310]){
