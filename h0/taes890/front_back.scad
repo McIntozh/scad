@@ -7,22 +7,26 @@ License: [Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.
 $scale=1/87;
 
 
-
+rotate([-90,0,0])
 scale($scale){
     translate([-1500,0,0])
-    front();
+    front(true);
      
     translate([1500,0,0])
-    back();
+    back(true);
 }
  
- module front(){
- difference(){
+ module front(with_side_gaps=true){
+ if(with_side_gaps){
+   difference(){
     cube([2750,120,2300],center=true);
     translate([1350,60,0])
     cube([60,100,2400],center=true);
     translate([-1350,60,0])
     cube([60,100,2400],center=true);
+   }
+ }else{
+    cube([2750,120,2300],center=true);
  }
  front_back_bars();
  front_back_roof_pin();
@@ -37,13 +41,17 @@ wheel_handle();
  
 }
  
- module back(){
- difference(){
+ module back(with_side_gaps=true){
+ if(with_side_gaps){
+   difference(){
     cube([2750,120,2300],center=true);
     translate([1350,60,0])
     cube([60,100,2400],center=true);
     translate([-1350,60,0])
     cube([60,100,2400],center=true);
+   }
+ } else {
+   cube([2750,120,2300],center=true);
  }
  front_back_bars();
  front_back_roof_pin();

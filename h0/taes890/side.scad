@@ -6,22 +6,30 @@ License: [Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.
 
 $scale=1/87;
 
+rotate([0,-90,0])
+scale($scale)side(true);
 
-scale($scale)side();
-module side(){
-difference(){
-    translate([0,0,1150]){
-    cube([100,13000,2300],center=true);
-    /*difference(){
 
+module side(with_part_connectors=false){
+    if(with_part_connectors){
+      difference(){
+        translate([0,0,1150]){
         cube([100,13000,2300],center=true);
+        /*difference(){
 
-        translate([0,0,-50])doorhole();
-    }
-    */
-    }
-    side_2_front_and_back_part_connector();
-}
+            cube([100,13000,2300],center=true);
+
+            translate([0,0,-50])doorhole();
+        }
+        */
+        }
+        side_2_front_and_back_part_connector();
+      }
+  }else{
+    translate([0,0,1150])
+    cube([100,13000,2300],center=true);
+  }
+  
 vertical_stipes();
 top_stripe();//TODO eigentlich top roof part
 bottom_stripe();
@@ -41,10 +49,10 @@ pipe_box();
 
 translate([25,0,-125]){
 cube([50,13000,250],center=true);
-side_part_connectors();
+if(with_part_connectors)
+  side_part_connectors();
 }
-//TODO
-//front and back part connectors
+
 
 }
 

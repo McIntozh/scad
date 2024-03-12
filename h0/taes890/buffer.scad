@@ -30,9 +30,9 @@ translate([1750/2*-i,(13000/2+200),-30]){
 
 module buffer(){
 buffer_hole();
-color("lime")rotate([90,0,0])cylinder(h=400,r=90,center=true);
-color("blue")translate([0,125,0])rotate([90,0,0])cylinder(h=250,r=100,center=true);
-color("red")translate([0,190,0])rotate([90,0,0])cylinder(h=50,r=120,center=true);
-color("red")translate([0,230,0])rotate([90,0,0])cylinder(h=50,r=150,center=true);
+color("lime")rotate([90,0,0])cylinder(h=400,r=90+10,center=true);
+color("blue")translate([0,125,0])rotate([90,0,0])cylinder(h=250,r=100+10,center=true);
+color("red")translate([0,190,0])rotate([90,0,0])cylinder(h=50,r=120+10,center=true);
+color("red")translate([0,230,0])rotate([90,0,0])cylinder(h=50,r=150+10,center=true);
 
 }

@@ -5,16 +5,16 @@ License: [Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.
 */
 
 $scale=1/87;
-
-
+$fn=64;
+bogiePin="screw";//screw|snap
 
 use <buffer.scad>
 
 scale($scale)
-  floor();
+  floor(bogiePin);
   
   
-module floor(){
+module floor(bogiePin="screw"){
 
 difference(){
 //plate
@@ -37,7 +37,7 @@ cube([2650-100,13000-100,55],center=true);
 }
 }
 
-bogie_pins();
+bogie_pins(bogiePin);
 side_ladders();
 back_ladders();
 levers_pipes_tanks();
@@ -49,7 +49,7 @@ translate([0,2000,0])mirror([1,0,0])side_ladder();
 }
 
 module side_ladder(){
-translate([1200,-1000,-225+10]){
+translate([1200,-1000,-225-30]){
     translate([0,-150,0])rotate([0,10,0])cube([100,150,350],center=true);
     translate([0,150,0])rotate([0,10,0])cube([100,150,350],center=true);
     translate([16,0,-166])
@@ -64,7 +64,7 @@ translate([100,0,0])mirror([1,0,0])back_ladder();
 
 module back_ladder(){
 rotate([0,0,90])
-translate([-6400,1000,-225+10]){
+translate([-6400,1000,-225-30]){
     translate([0,150,0])cube([100,150,350],center=true);
     translate([-50,150,-166])
     cube([200,200,75],center=true);
@@ -161,17 +161,22 @@ translate([1200,-400,-285+1]){
 
 }
 
-module bogie_pins(){
+module bogie_pins(bogiePin){
 
 for(i=[-1:2:1]){
-translate([0,8500/2*-i,65-100]){
+translate([0,8500/2*-i,65-100-15]){
     difference(){
     union(){
     color("red")translate([0,0,-270])cylinder(h=550,r=165,center=true);
-    color("blue")translate([0,0,-160])cylinder(h=200,r=400,center=true);
+    color("blue")translate([0,0,-160])cylinder(h=200,r=400+100,center=true);
+    if(bogiePin=="snap")
     color("lime")translate([0,0,-525])cylinder(h=160,r1=165,r2=200,center=true);
     }
+    if(bogiePin=="snap"){
     color("pink")translate([0,0,-470])scale([10,1,1])rotate([0,0,45])cylinder(h=300,r1=120,r2=10,center=true,$fn=4);
+    }else{
+    color("pink")translate([0,0,-470+60])cylinder(h=300,r=30,center=true);
+    }
     }
     }
 }
